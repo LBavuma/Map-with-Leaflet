@@ -1,0 +1,59 @@
+---
+title: "Interactive Map with Leaflet"
+author: "Lukhanyiso Bavuma"
+date: "`r format(Sys.Date(), '%B %d, %Y')`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+library(leaflet)
+```
+
+## Exploring the World with Leaflet
+
+This interactive map was created on **`r format(Sys.Date(), '%B %d, %Y')`** using R Markdown and the Leaflet package.
+
+### Featured Locations
+
+Below is an interactive map showcasing some of the world's most iconic landmarks. Click on the markers to learn more about each location!
+
+```{r map}
+# Create a leaflet map with multiple markers
+leaflet() %>%
+  addTiles() %>%
+  # Eiffel Tower, Paris
+  addMarkers(lat = 48.8584, lng = 2.2945,
+             popup = "<b>Eiffel Tower</b><br/>Paris, France<br/>Iconic iron lattice tower") %>%
+  # Statue of Liberty, New York
+  addMarkers(lat = 40.6892, lng = -74.0445,
+             popup = "<b>Statue of Liberty</b><br/>New York, USA<br/>Symbol of freedom") %>%
+  # Great Wall of China
+  addMarkers(lat = 40.4319, lng = 116.5704,
+             popup = "<b>Great Wall of China</b><br/>China<br/>Ancient fortification") %>%
+  # Sydney Opera House
+  addMarkers(lat = -33.8568, lng = 151.2153,
+             popup = "<b>Sydney Opera House</b><br/>Sydney, Australia<br/>Performing arts center") %>%
+  # Machu Picchu, Peru
+  addMarkers(lat = -13.1631, lng = -72.5450,
+             popup = "<b>Machu Picchu</b><br/>Peru<br/>Ancient Incan citadel") %>%
+  # Table Mountain, South Africa
+  addMarkers(lat = -33.9628, lng = 18.4098,
+             popup = "<b>Table Mountain</b><br/>Cape Town, South Africa<br/>Flat-topped mountain") %>%
+  # Set the view to show all markers
+  setView(lng = 0, lat = 20, zoom = 2)
+```
+
+### About This Map
+
+This map uses the Leaflet JavaScript library through R to create an interactive visualization. You can:
+
+- **Zoom in/out** using the + and - buttons or your mouse wheel
+- **Pan** by clicking and dragging the map
+- **Click markers** to see information about each location
+- **Switch views** using the layer control
+
+---
+
+*Created with R Markdown and Leaflet for the Developing Data Products course on Coursera.*
+```
